@@ -1,0 +1,31 @@
+.answer-container {
+    margin-top: 5vh;
+}
+
+.answer-letter {
+    padding-right: 5px;
+}
+
+.answer-textbox {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.answer-box {
+    display: flex;
+    align-items: center;
+    min-height:60px;    
+    margin-bottom:7px;
+    /* text-align: center; */
+
+    
+    border: solid 1px rgb(230, 230, 230);
+    border-radius: 4px;
+}
+li {
+    list-style:none;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
