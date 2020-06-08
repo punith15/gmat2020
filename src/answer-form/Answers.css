@@ -1,0 +1,145 @@
+.centered-column {
+    margin-top:60px;
+    padding-left:420px;
+    max-width:900px;
+    padding-top:75px;
+    margin:0px auto;
+    padding-bottom:125px;
+}
+
+.answer-letter {
+    padding-right: 5px;
+}
+
+.answer-textbox {
+    margin-left: 10px;
+    margin-right: 20px;        
+}
+
+.answer-box {
+    display: flex;
+    align-items: center;
+    min-height:60px;    
+    margin-bottom:7px;
+    
+    border: solid 1px rgb(230, 230, 230);
+    border-radius: 4px;
+}
+
+.answer-box {
+    display: flex;
+    align-items: center;
+    min-height:60px;    
+    margin-bottom:7px;
+    border-radius: 4px;
+}
+
+.answer-selected {    
+    border: solid 1.5px rgb(50, 93, 232);
+    background-color: rgb(228,243, 251);
+}
+
+.answer-correct {    
+    border: solid 1.5px rgb(50, 232, 74);
+    background-color: rgb(229, 251, 228);
+}
+
+.answer-incorrect {    
+    border: solid 1.5px rgb(232, 50, 50);
+    background-color: rgb(251, 228, 228);
+}
+
+.flex-buttons-container {
+    display: flex;
+    align-items: center;
+    position:relative;
+    justify-content: center;   
+}
+
+.flex-buttons-container-right {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    position:absolute;
+}
+
+.answer-submit-button {
+    height: 51px;
+    min-width: 169px;
+    border-radius: 10px;    
+    outline: none;    
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:30px;
+    background-color: rgb(36, 15, 110);
+    color: rgb(255, 255, 255);    
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    position:absolute; left:0px; 
+}
+
+.view-solutions-button {
+    height: 51px;
+    min-width: 156px;
+    border-radius: 10px;    
+    outline: none;    
+    font-weight: bold;
+    cursor: pointer;
+    margin-top:30px;
+    background-color: rgb(36, 15, 110);
+    color: rgb(255, 255, 255);    
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position:absolute; right:0px; 
+}
+
+
+.answer-submit-button:disabled
+{
+    background-color: rgb(107, 107, 107);
+}
+
+.answer-submit-button:hover
+{
+    background-color: rgb(36, 15, 110);
+}
+
+li {
+    list-style:none;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+
+.answer-form {
+    padding-top:20px;
+}
+
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+    right:0px;
+}
+
+.round {
+    border-radius: 50%;
+}

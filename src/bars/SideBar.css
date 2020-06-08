@@ -1,0 +1,130 @@
+
+.sidebar {
+  width:420px;
+  min-width:420px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+.sidebar-li {
+  padding:15px;
+  border-top:solid 0.5px #b9b6b6cc;  
+  cursor: pointer;
+}
+
+
+.sidebar-selected-li {
+  padding:15px;
+  border: solid 1.5px rgb(50, 93, 232);
+  background-color: rgb(228,243, 251);
+  border-radius:5px;
+
+}
+
+
+.avatar {  
+  border-radius: 50%;
+  width:30px;
+}
+
+
+
+/* For previous/forward buttons */
+.sidebutton {  
+  /* background-color: rgb(36, 15, 110) !important;
+   */
+   
+  text-align:center;
+  font-size:75px;
+  font-weight:400;  
+  width:40px;
+  color: white !important;
+  cursor: pointer;
+  height:100%;
+  position: fixed;
+  padding-top: 45vh;
+  text-shadow: 1px  1px 1px rgb(99, 98, 98);
+}
+
+
+.previous {
+  background-image: linear-gradient(to right, rgb(218, 216, 216), rgb(255, 255, 255)) !important;
+  margin-left:420px;
+}
+
+.previous:hover {
+  background-image: linear-gradient(to right, rgba(189, 189, 189, 0.712), rgb(255, 255, 255)) !important;
+}
+
+
+.next {
+  background-image: linear-gradient(to left, rgb(218, 216, 216), rgb(255, 255, 255)) !important;
+  margin-left:420px;
+}
+
+.next:hover {
+  background-image: linear-gradient(to left, rgba(189, 189, 189, 0.712), rgb(255, 255, 255)) !important;
+}
+
+
+
+
+.topbar {
+  display:flex;
+  height:58.5px;
+  width:100%;
+  border-bottom: solid 1.2px rgb(224, 224, 224);
+  /* border: solid 1px rgb(224, 224, 224); */
+  background-color:(250,250,251);
+  position:fixed;
+  /* box-shadow: 
+  0px 1px 1px rgb(185, 184, 185),
+  0px 1px 2px rgb(189, 189, 189) */
+}
+
+.top-left-button {
+  border-right: solid 1.2px rgb(224, 224, 224);
+  height: 100%;
+  width: 180px;
+}
+
+.top-left-previous {
+  font-size:30px;
+  
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  color: rgb(180, 180, 180);
+  padding: 0px 10px;
+}
+
+.top-middle-bar {
+  border-right: solid 1.2px rgb(224, 224, 224);
+  height: 100%;
+  width: 100%;
+}
+
+.top-right-button1 {
+  border-right: solid 1.2px rgb(224, 224, 224);
+  height: 100%;
+  width: 75px;
+}
+
+.top-right-button2 {
+  border-right: solid 1.2px rgb(224, 224, 224);
+  height: 100%;
+  width: 150px;
+  display: flex;
+  justify-content: left; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-left:20px;
+}
+
+.userfullname{
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1.1px;
+  font-size: 13px;
+  color: rgb(180, 180, 180);
+  padding: 0px 10px;
+}
