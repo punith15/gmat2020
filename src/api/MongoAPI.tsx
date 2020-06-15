@@ -44,7 +44,7 @@ export function mockApi(): Promise<any> {
         mockObj.push(doRandom(JSON.parse(JSON.stringify(a))));
         mockObj.push(doRandom(JSON.parse(JSON.stringify(a))));
         
-        mockObj.map(a => console.log(JSON.stringify(a)));
+        // mockObj.map(a => console.log(JSON.stringify(a)));
         resolve(mockObj);
     });
 }

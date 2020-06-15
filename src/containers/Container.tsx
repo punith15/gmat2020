@@ -88,7 +88,7 @@ export default class Container extends React.Component<IContainerProps, IContain
                 }
             })
             const activeQuestionToSet = Object.assign({}, this.state.activeQuestion);
-            activeQuestionToSet.answer = newAnswer;
+            activeQuestionToSet.answers = newAnswer;
             this.setState({ activeQuestion: activeQuestionToSet });
         }
     }
@@ -98,9 +98,8 @@ export default class Container extends React.Component<IContainerProps, IContain
         this.setState({ submitButtonClicked: true });
     }
 
-    isOneButtonSelected = () => {
-        let x = this.state.activeQuestion.answers ? this.state.activeQuestion.answers.every((answer: any) => answer.selected === false) : false;
-        return x;
+    shouldDisableSubmit = () => {
+        return this.state.activeQuestion.answers ? this.state.activeQuestion.answers.every((current : any) =>  current.selected === false || current.selected === undefined) : false;        
     }
 
     onPreviousButtonClick = () => {
@@ -144,7 +143,7 @@ export default class Container extends React.Component<IContainerProps, IContain
                             submitButtonClicked={this.state.submitButtonClicked}
                         />
                         <form className="flex-buttons-container">
-                            <AnswerButton onSubmitButtonClicked={this.onSubmitButtonClicked} isOneButtonSelected={this.isOneButtonSelected()} />
+                            <AnswerButton onSubmitButtonClicked={this.onSubmitButtonClicked} doDisable={this.shouldDisableSubmit()} />
                             <ViewSolutionsButton className="flex-buttons-container-right" />
                         </form>
                     </div>
