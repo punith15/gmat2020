@@ -10,7 +10,7 @@
 
 .sidebar-li {
   padding:15px;
-  border-top:solid 0.5px #b9b6b6cc;  
+  border-bottom:solid 0.5px #b9b6b6cc;  
   cursor: pointer;
 }
 
@@ -50,22 +50,30 @@
 
 
 .previous {
-  background-image: linear-gradient(to right, rgb(218, 216, 216), rgb(255, 255, 255)) !important;
+  background-image: linear-gradient(to right, rgb(194, 192, 192), rgb(255, 255, 255)) !important;
   margin-left:420px;
+  opacity: 0.4;
 }
 
 .previous:hover {
-  background-image: linear-gradient(to right, rgba(189, 189, 189, 0.712), rgb(255, 255, 255)) !important;
+  background-image: linear-gradient(to right, rgba(134, 134, 134, 0.712), rgb(255, 255, 255)) !important;
+  font-size:90px;
+  padding-top: 44vh;
+  text-shadow: 2px  2px 2px rgb(24, 23, 23);
 }
 
 
 .next {
-  background-image: linear-gradient(to left, rgb(218, 216, 216), rgb(255, 255, 255)) !important;
+  background-image: linear-gradient(to left, rgb(194, 192, 192), rgb(255, 255, 255)) !important;
   margin-left:420px;
+  opacity: 0.4;
 }
 
 .next:hover {
-  background-image: linear-gradient(to left, rgba(189, 189, 189, 0.712), rgb(255, 255, 255)) !important;
+  background-image: linear-gradient(to left, rgba(134, 134, 134, 0.712), rgb(255, 255, 255)) !important;  
+  font-size:90px;
+  padding-top: 44vh;
+  text-shadow: 2px  2px 2px rgb(24, 23, 23);
 }
 
 

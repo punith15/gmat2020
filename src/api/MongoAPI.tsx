@@ -43,11 +43,13 @@ export function mockApi(): Promise<any> {
         mockObj.push(doRandom(JSON.parse(JSON.stringify(a))));
         mockObj.push(doRandom(JSON.parse(JSON.stringify(a))));
         mockObj.push(doRandom(JSON.parse(JSON.stringify(a))));
+        
+        mockObj.map(a => console.log(JSON.stringify(a)));
         resolve(mockObj);
     });
 }
 
-export function fetchQuestionFromMongodb(conditions: any): Promise<any> {
+export function g(conditions: any): Promise<any> {
     return new Promise((resolve, err) => {
         resolve(mockObj);
     });

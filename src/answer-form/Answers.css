@@ -1,10 +1,17 @@
 .centered-column {
-    margin-top:60px;
     padding-left:420px;
     max-width:900px;
-    padding-top:75px;
+    padding-top:40px;
     margin:0px auto;
     padding-bottom:125px;
+}
+
+.question {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.14px;
+    color: rgb(34, 33, 33);
+    font-family: "Open Sans", sans-serif;
 }
 
 .answer-letter {
