@@ -4,6 +4,7 @@ import SideBar from '../bars/SideBar';
 import './Containers.css';
 import AnswerButton from '../answer-form/AnswerButton';
 import Question from '../answer-form/Question';
+import Solution from '../answer-form/Solution';
 import '../answer-form/Answers.css';
 import ViewSolutionsButton from '../answer-form/ViewSolutionsButton';
 import MultipleChoiceBox from '../answer-form/MultipleChoiceBox';
@@ -22,6 +23,7 @@ interface IContainerState {
     questionArr: any[];
     activeQuestion: any;
     currentQuestionIndex: number;
+    activeSolution: any;
     
 }
 
@@ -34,7 +36,8 @@ export default class Container extends React.Component<IContainerProps, IContain
             submitButtonClicked: false,
             questionArr: [],
             activeQuestion: {},
-            currentQuestionIndex: 0
+            currentQuestionIndex: 0,
+            activeSolution: {}
         };
     }
 
@@ -110,6 +113,12 @@ export default class Container extends React.Component<IContainerProps, IContain
         this.onSidebarClick(this.state.currentQuestionIndex + 1)
     }
 
+    onViewSolutionsButtonClicked = () => {
+        this.setState({
+            activeSolution: this.state.activeQuestion.userAnswers[0]            
+        })
+    }
+
 
     render() {
         return (
@@ -144,8 +153,9 @@ export default class Container extends React.Component<IContainerProps, IContain
                         />
                         <form className="flex-buttons-container">
                             <AnswerButton onSubmitButtonClicked={this.onSubmitButtonClicked} doDisable={this.shouldDisableSubmit()} />
-                            <ViewSolutionsButton className="flex-buttons-container-right" />
-                        </form>
+                            <ViewSolutionsButton className="flex-buttons-container-right" showSolutions={this.onViewSolutionsButtonClicked} />
+                        </form>                        
+                        <Solution solution={this.state.activeSolution}/>
                     </div>
 
                 </div>

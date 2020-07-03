@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Container from './containers/Container';
+// import { Provider } from 'react-redux';
 
 ReactDOM.render(
   <React.StrictMode>
