@@ -8,6 +8,7 @@ import Solution from '../answer-form/Solution';
 import '../answer-form/Answers.css';
 import ViewSolutionsButton from '../answer-form/ViewSolutionsButton';
 import MultipleChoiceBox from '../answer-form/MultipleChoiceBox';
+import { Redirect} from 'react-router'
 // import image from '../../public/grayuser.png';
 
 interface IContainerProps {
@@ -22,11 +23,12 @@ interface IContainerState {
     activeSolution: any;
     user: any;
     userName: any;
+    token: any;
     
 }
 
 
-export default class Container extends React.Component<IContainerProps, IContainerState>{
+class Container extends React.Component<IContainerProps, IContainerState>{
 
     constructor(props: any) {
         super(props);
@@ -37,12 +39,14 @@ export default class Container extends React.Component<IContainerProps, IContain
             currentQuestionIndex: 0,
             activeSolution: {},
             user : JSON.parse(sessionStorage.getItem('user') || '{}'),
-            userName : sessionStorage.getItem('userName') || 'Elon'
+            userName : sessionStorage.getItem('userName') || 'Elon',
+            token : sessionStorage.getItem('userToken')
         };
     }
 
     componentDidMount = () => {
         console.log(sessionStorage.getItem('userName'))
+        
         mockApi()
             .then((res) => {
                 // response is an array of "question" objects, which contain question, correct answer, solutions, etc.
@@ -122,6 +126,9 @@ export default class Container extends React.Component<IContainerProps, IContain
 
 
     render() {
+        if(!this.state.token){
+            return <Redirect to="/" push={true} />
+        }
         return (
             <div className="fullscreen">
                 <div className="topbar">
@@ -166,3 +173,4 @@ export default class Container extends React.Component<IContainerProps, IContain
     }
 }
 
+export default Container;

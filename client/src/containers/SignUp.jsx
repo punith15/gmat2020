@@ -41,10 +41,10 @@ class SignUp extends Component {
                 confirmPassword : '',
                 message : ['Sign Up Successful', 'green'],
                 loading : false
-            })
-            // setTimeout(()=>{
-            //     this.props.history.push('/');
-            // },3000)
+            },
+            ()=> this.props.history.push('/')
+            )
+            
         }else{
             this.setState({
                 ...this.state,
@@ -118,12 +118,14 @@ class SignUp extends Component {
                     onChange={this.onNameChange}
                     value={this.state.name} required/>
                     </div>
+
                     <div className="form-group">
                     <label htmlFor="email">Email address</label>
                     <input type="email" className="form-control" id="email" 
                     onChange={this.onEmailChange}
                     value={this.state.email} required/>
                     </div>
+
                     <div className="form-group">
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" id="password" 
@@ -131,6 +133,7 @@ class SignUp extends Component {
                     value={this.state.password} required/>
                     {!this.state.isMatch ? <small style={{color:'red'}}>Password missmatch</small> : ''}
                     </div>
+
                     <div className="form-group">
                     <label htmlFor="confirm-password">Confirm Password</label>
                     <input type="password" className="form-control" id="confirm-password" 
@@ -138,6 +141,7 @@ class SignUp extends Component {
                     value={this.state.confirmPassword} required/>
                     {!this.state.isMatch ? <small style={{color:'red'}}>Password missmatch</small> : ''}
                     </div>
+
                     <p>Already Registered ?
                         <Link className="signup-link" to="/">Login</Link>
                     </p>
@@ -151,4 +155,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
