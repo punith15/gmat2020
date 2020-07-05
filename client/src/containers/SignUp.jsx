@@ -42,7 +42,11 @@ class SignUp extends Component {
                 message : ['Sign Up Successful', 'green'],
                 loading : false
             },
-            ()=> this.props.history.push('/')
+            ()=> {
+                setTimeout(()=>{
+                    this.props.history.push('/')
+                }, 500)
+                }
             )
             
         }else{
