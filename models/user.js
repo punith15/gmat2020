@@ -11,11 +11,14 @@ const userSchema = mongoose.Schema({
     email : {
         type : String,
         required : true,
-        unique : true,
+        unique : [true, "email must be unique"],
         trim : true,
         validate(value){
             if(!validator.isEmail(value)){
                 throw new Error("Email not valid !!!")
+            }
+            if(User.findOne({email : value})){
+                throw new Error("Email already exists !!!")
             }
         }
     },
@@ -39,8 +42,7 @@ userSchema.methods.generateAuthToken = async function(){
     const user = this
     const token = await jwt.sign({_id:user._id.toString()}, process.env.JWT_SECRET)
     user.tokens = user.tokens.concat({token})
-    user.save()
-    return user;
+    return {user, token};
 }
 
 userSchema.statics.findByCredentials = async(email, password)=>{

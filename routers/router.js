@@ -5,17 +5,18 @@ const User = require('../models/user')
 router.post("/signup", async(req,res)=>{
     const data = req.body
     console.log(data)
-    // res.status(201).send()
-    const user = new User({
-        name : req.body.name,
-        email : req.body.email,
-        password : req.body.password
-    })
     try {
-        const token = await user.generateAuthToken()
+        const user1 = new User({
+            name : req.body.name,
+            email : req.body.email,
+            password : req.body.password
+        })
+        const {user, token} = await user1.generateAuthToken()
+        await user.save()
         res.status(201).send({user, token})
+        
     } catch (error) {
-        res.send(500).send({error : error.message})
+        res.status(500).send({error : error.message})
     }
     // console.log(user)
 })

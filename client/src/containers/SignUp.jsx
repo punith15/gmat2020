@@ -32,30 +32,38 @@ class SignUp extends Component {
                 'Content-Type' : 'application/json'
             }
         })
+        try {
+            const userObj = await userRes.json()
+            console.log(userObj)
 
-        if(userRes.status === 201){
-            this.setState({
-                name : '',
-                email : '',
-                password : '',
-                confirmPassword : '',
-                message : ['Sign Up Successful', 'green'],
-                loading : false
-            },
-            ()=> {
-                setTimeout(()=>{
-                    this.props.history.push('/')
-                }, 500)
-                }
-            )
-            
-        }else{
-            this.setState({
-                ...this.state,
-                loading : false,
-                message : ['Unable to Sign Up, try later', 'red']
-            })
+            if(!userObj.error){
+                console.log(userRes.status)
+                this.setState({
+                    name : '',
+                    email : '',
+                    password : '',
+                    confirmPassword : '',
+                    message : ['Sign Up Successful', 'green'],
+                    loading : false
+                },
+                ()=> {
+                    setTimeout(()=>{
+                        this.props.history.push('/')
+                    }, 500)
+                    }
+                )
+                
+            }else{
+                this.setState({
+                    ...this.state,
+                    loading : false,
+                    message : [`Unable to Sign Up, ${userObj.error}`, 'red']
+                })
+            }
+        } catch (error) {
+            console.log(error.message)
         }
+        
     }
 
     onNameChange = (e)=>{
@@ -92,7 +100,14 @@ class SignUp extends Component {
             this.setState({
                 ...this.state,
                 isMatch : false,
-                message : [],
+                message : ['Password Missmatch','red'],
+                loading : false
+            })
+        }else if(this.state.password.length <6 && this.state.password.length <6){
+            this.setState({
+                ...this.state,
+                isMatch : false,
+                message : ['Password length must be greater than 6', 'red'],
                 loading : false
             })
         }else{
@@ -135,7 +150,7 @@ class SignUp extends Component {
                     <input type="password" className="form-control" id="password" 
                     onChange={this.onPasswordChange}
                     value={this.state.password} required/>
-                    {!this.state.isMatch ? <small style={{color:'red'}}>Password missmatch</small> : ''}
+                    {!this.state.isMatch ? <small style={{color:'red'}}>{this.state.message[0]}</small> : ''}
                     </div>
 
                     <div className="form-group">
@@ -143,7 +158,7 @@ class SignUp extends Component {
                     <input type="password" className="form-control" id="confirm-password" 
                     onChange={this.onConfirmPassChange}
                     value={this.state.confirmPassword} required/>
-                    {!this.state.isMatch ? <small style={{color:'red'}}>Password missmatch</small> : ''}
+                    {!this.state.isMatch ? <small style={{color:'red'}}>{this.state.message[0]}</small> : ''}
                     </div>
 
                     <p>Already Registered ?
