@@ -12,15 +12,7 @@ const userSchema = mongoose.Schema({
         type : String,
         required : true,
         unique : [true, "email must be unique"],
-        trim : true,
-        validate(value){
-            if(!validator.isEmail(value)){
-                throw new Error("Email not valid !!!")
-            }
-            if(User.findOne({email : value})){
-                throw new Error("Email already exists !!!")
-            }
-        }
+        trim : true
     },
     password : {
         type : String,
