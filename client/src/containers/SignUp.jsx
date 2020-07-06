@@ -54,19 +54,11 @@ class SignUp extends Component {
                 )
                 
             }else{
-                if(userObj.error.contains('E11000 ')){
-                    this.setState({
-                        ...this.state,
-                        loading : false,
-                        message : [`Unable to Sign Up, Email already exists`, 'red']
-                    })
-                }else{
-                    this.setState({
-                        ...this.state,
-                        loading : false,
-                        message : [`Unable to Sign Up, ${userObj.error}`, 'red']
-                    })
-                }
+                this.setState({
+                    ...this.state,
+                    loading : false,
+                    message : [`Unable to Sign Up, ${userObj.error}`, 'red']
+                })
                 
             }
         } catch (error) {
